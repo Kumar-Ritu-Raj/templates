@@ -15,3 +15,5 @@ HTML to python
 https://reqbin.com/req/python/yjok4snr/post-html-form-example
 
 https://www.geeksforgeeks.org/retrieving-html-from-data-using-flask/
+
+https://www.plus2net.com/python/cgi-form-data.php
