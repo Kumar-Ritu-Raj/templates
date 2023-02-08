@@ -1,0 +1,17 @@
+app= Flask(__name__)
+app_static_folder= '/content/templates'
+bootstrap=Bootstrap(app)
+run_with_ngrok(app)
+
+@app.route("/")
+def main():
+  return "<h1>I am kumar ritu raj</h1>"
+app.run()
+
+
+
+
+HTML to python
+https://reqbin.com/req/python/yjok4snr/post-html-form-example
+
+https://www.geeksforgeeks.org/retrieving-html-from-data-using-flask/
