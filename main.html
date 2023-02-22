@@ -19,15 +19,15 @@
 </head>	
 <body onload="style()"> 
 	<div id="txtdiv">
-		<p>Minimum "Average Glucose Level" in data = {{data[4]}}</p>
-		<p>Average "Average Glucose Level" in data = {{data[5]}}</p>
-		<p>Maximum "Average Glucose Level" in data = {{data[6]}}</p>
-		<p>Youngest Person was of {{data[7]}} Years</p>
-		<p>Average Age in the data {{data[8]}} Years</p>
-		<p>Oldest Person was of {{data[9]}} Years</p>
-		<p>Minimum "BMI" in data =  {{data[10]}}</p>
-		<p>Average "BMI" in data =  {{data[11]}}</p>
-		<p>Maximum "BMI" in data = {{data[12]}}</p>
+		<p>Minimum "Average Glucose Level" in data = {{M_data[0]}}</p>
+		<p>Average "Average Glucose Level" in data = {{M_data[1]}}</p>
+		<p>Maximum "Average Glucose Level" in data = {{M_data[2]}}</p>
+		<p>Youngest Person was of {{M_data[3]}} Years</p>
+		<p>Average Age in the data {{M_data[4]}} Years</p>
+		<p>Oldest Person was of {{M_data[5]}} Years</p>
+		<p>Minimum "BMI" in data =  {{M_data[6]}}</p>
+		<p>Average "BMI" in data =  {{M_data[7]}}</p>
+		<p>Maximum "BMI" in data = {{M_data[8]}}</p>
 	</div>
 	<div id="main">
 		<div id="textbox">
@@ -41,23 +41,7 @@
 			}
 		</script> 
 		<div id="btnfamily">
-			<button id="C" class="btngrp" >C</button> 
-			<button id="delete" class="btngrp" >Del</button>
-			<button id="percent" class="btngrp" >%</button>
-			<button id="one" class="btngrp" >1</button>
-			<button id="two" class="btngrp" >2</button>
-			<button id="plus" class="btngrp" >+</button>
-			<button id="three" class="btngrp" >3</button>
-			<button id="four" class="btngrp" >4</button>
-			<button id="minus" class="btngrp" >-</button>
-			<button id="five" class="btngrp" >5</button>
-			<button id="six" class="btngrp" >6</button>
-			<button id="multiply" class="btngrp" >*</button>
-			<button id="seven" class="btngrp" >7</button>
-			<button id="eight" class="btngrp" >8</button>
-			<button id="division" class="btngrp" >/</button>
-			<button id="nine" class="btngrp" >9</button>
-			<button id="zero" class="btngrp" >0</button>
+			
 			<button id="dot" class="btngrp">.</button>
 			<button id="equal" onclick="operate()" class="btngrp" >=</button>			
 		</div>
