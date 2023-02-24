@@ -1,37 +1,98 @@
 <html>
 <head>
-    <title>calculator</title>
-	<script src="jquery.js"></script>
-	<style>
-		body{display:flex;align-items:center;justify-content:center;margin:0px;background-image:linear-gradient(to top,aqua,lightblue,dodgerblue,blue);}
-		#main{opacity:1;transition:all 2s;height:600px;width:500px;box-shadow:0px 0 100px black;}
-		#txtdiv{transition:all 2s;opacity:1;}
-	</style>
+    <title>Python Project</title>
+	<link rel="stylesheet" href="main_css.css">
 </head>	
-<body onload="style()"> 
+<body>
 	<div id="txtdiv">
-		<p>Minimum "Average Glucose Level" in data = {{M_data[0]}}</p>
-		<p>Average "Average Glucose Level" in data = {{M_data[1]}}</p>
-		<p>Maximum "Average Glucose Level" in data = {{M_data[2]}}</p>
-		<p>Youngest Person was of {{M_data[3]}} Years</p>
-		<p>Average Age in the data {{M_data[4]}} Years</p>
-		<p>Oldest Person was of {{M_data[5]}} Years</p>
-		<p>Minimum "BMI" in data =  {{M_data[6]}}</p>
-		<p>Average "BMI" in data =  {{M_data[7]}}</p>
-		<p>Maximum "BMI" in data = {{M_data[8]}}</p>
+		<h1>Parameters</h1>
+		<p>Minimum "Average Glucose Level" in data = <span class="pydata">{{M_data[0]}}</span></p>
+		<p>Average "Average Glucose Level" in data = <span class="pydata">{{M_data[1]}}</span></p>
+		<p>Maximum "Average Glucose Level" in data = <span class="pydata">{{M_data[2]}}</span></p>
+		<p>Youngest Person was of <span class="pydata">{{M_data[3]}}</span> Years</p>
+		<p>Average Age in the data <span class="pydata">{{M_data[4]}}</span> Years</p>
+		<p>Oldest Person was of <span class="pydata">{{M_data[5]}}</span> Years</p>
+		<p>Minimum "BMI" in data =  <span class="pydata">{{M_data[6]}}</span></p>
+		<p>Average "BMI" in data =  <span class="pydata">{{M_data[7]}}</span></p>
+		<p>Maximum "BMI" in data = <span class="pydata">{{M_data[8]}}</span></p>
 	</div>
 	<div id="main">
+		<div id="getData">
+			<h2>BRAIN Stroke Prediction</h2>
+			<select class="data">
+				<option value="">Select Gender</option>
+				<option value="0">Male</option>
+				<option value="1">Female</option>
+			</select>
+			<select class="data">
+				<option value="">Select Age</option>
+				<option value="0">00-16</option>
+				<option value="1">17-32</option>
+				<option value="2">33-48</option>
+				<option value="3">49-64</option>
+				<option value="4">Above 64</option>
+			</select>
+			<select class="data">
+				<option value="">Have Hypertension</option>
+				<option value="0">Yes</option>
+				<option value="1">No</option>
+			</select>
+			<select class="data">
+				<option value="">have Heart Desease</option>
+				<option value="0">Yes</option>
+				<option value="1">No</option>
+			</select>
+			<input class="data" type="number" min="{{M_data[0]}}" max="{{M_data[2]}}" placeholder="Average Glucose Level">
+			<input class="data" type="number" min="{{M_data[6]}}" max="{{M_data[8]}}" placeholder="BMI">
+			<select class="data">
+				<option value="">Select Smoke Level</option>
+				<option value="0">Formerly Smoked</option>
+				<option value="1">Never Smoked</option>
+				<option value="2">Smokes</option>
+				<option value="3">Unknown</option>
+			</select>
+			<button id="predict" onclick="getResult()">Predict</button>
+		</div>
+	</div>
 
-		<div id="btnfamily">
-		<form action="/main1" method="get">
-		<label for="AGL">Average Glucose Level :</label>
-		<input type="number" name="AGL" id="AGL"><br>
-		<label for="BMI">BMI :</label>
-		<input type="number" name="BMI" id="BMI">
-    <input type="submit" value="Add">
-  
-    </form>
+	<div id="popup"><!-- to show the result -->
+		<button id="close" onclick="this.parentElement.style.height='0%'">&#10008;</button>
+		<div id="resultText">
+			<p>Total Data = <span class="pydata">{{T_data[4]}}</span></p>
+			<p>Train Data = <span class="pydata">{{T_data[2]}}</span>% = <span class="pydata">{{T_data[0]}}</span></p>
+			<p>Test Data = <span class="pydata">{{T_data[3]}}</span>% = <span class="pydata">{{T_data[1]}}</span></p>
+			<p id="result"></p>
+		</div>
+		<div id="resultParameter">
+			<h1>Prediction</h1>
+			<p>Radial Support Vector Machines(rbf-SVM) = <span class="pydata">{{A_data[0]}}</span></p>
+			<p>Linear Support Vector Machine(linear-SVM) = <span class="pydata">{{A_data[1]}}</span></p>
+			<p>Decision Tree = <span class="pydata">{{A_data[2]}}</span></p>
+			<p>K-Nearest Neighbours(KNN) = <span class="pydata">{{A_data[3]}}</span></p>
+			<p>Gaussian Naive Bayes = <span class="pydata">{{A_data[4]}}</span></p>
+			<p>Random Forests = <span class="pydata">{{A_data[5]}}</span></p>
+			<p>Logistic Regression =  <span class="pydata">{{A_data[6]}}</span></p>
 		</div>
 	</div>
 </body>
+<script>
+	function getResult(){
+		let dataArr=document.getElementsByClassName("data");
+		for(i=0;i<dataArr.length;i++){
+			if(dataArr[i].value!=""){//!= is set as ==
+				alert("Please Fill Every Field Properly.");
+				break;
+			}else{
+				console.log(dataArr[i].value);
+				alert(parseFloat(document.getElementsByClassName("pydata")[0].innerHTML)+0.2);
+				// Calculate the result and display it in the result div
+				//let result = num1 + num2;
+				//document.getElementById("result").innerHTML = "Result: " + result;
+			}
+		}
+	}
+	function openResult(){
+		document.getElementById("popup").style.height="100%";
+	}
+</script>
 </html>

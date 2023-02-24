@@ -1,14 +1,9 @@
 <html>
 <head>
-    <title>calculator</title>
-	<script src="jquery.js"></script>
-	<style>
-		body{display:flex;align-items:center;justify-content:center;margin:0px;background-image:linear-gradient(to top,aqua,lightblue,dodgerblue,blue);}
-		#main{opacity:1;transition:all 2s;height:600px;width:500px;box-shadow:0px 0 100px black;}
-		#txtdiv{transition:all 2s;opacity:1;}
-	</style>
+    <title>Python Project</title>
+	<link rel="stylesheet" href="main_css.css">
 </head>	
-<body onload="style()"> 
+<body> 
 	<div id="txtdiv">
 		<p>Total Data = {{T_data[4]}}</p>
 		<p>Train Data = {{T_data[2]}}% = {{T_data[0]}}</p>
@@ -17,26 +12,19 @@
 
     <script>
       // Get the values of num1 and num2 from the query string
-      let urlParams = new URLSearchParams(window.location.search);
-      let num1 = parseInt(urlParams.get('AGL'));
-      let num2 = parseInt(urlParams.get('BMI'));
       
-      // Calculate the result and display it in the result div
-      let result = num1 + num2;
-      document.getElementById("result").innerHTML = "Result: " + result;
     </script>
 
 	</div>
 	<div id="main">
-		<div id="btnfamily">
-		<p>Radial Support Vector Machines(rbf-SVM) = {{A_data[0]}}</p>
-		<p>Linear Support Vector Machine(linear-SVM) = {{A_data[1]}}</p>
-		<p>Decision Tree = {{A_data[2]}}</p>
-		<p>K-Nearest Neighbours(KNN) = {{A_data[3]}}</p>
-		<p>Gaussian Naive Bayes = {{A_data[4]}}</p>
-		<p>Random Forests = {{A_data[5]}}</p>
-		<p>Logistic Regression =  {{A_data[6]}}</p>			
-		</div>
+			<h1>Parameters</h1>
+			<p>Radial Support Vector Machines(rbf-SVM) = {{A_data[0]}}</p>
+			<p>Linear Support Vector Machine(linear-SVM) = {{A_data[1]}}</p>
+			<p>Decision Tree = {{A_data[2]}}</p>
+			<p>K-Nearest Neighbours(KNN) = {{A_data[3]}}</p>
+			<p>Gaussian Naive Bayes = {{A_data[4]}}</p>
+			<p>Random Forests = {{A_data[5]}}</p>
+			<p>Logistic Regression =  {{A_data[6]}}</p>
 	</div>
 </body>
 </html>
