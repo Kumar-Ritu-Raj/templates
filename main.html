@@ -21,22 +21,15 @@
 		<p>Maximum "BMI" in data = {{M_data[8]}}</p>
 	</div>
 	<div id="main">
-		<script>
-			
-			function operate(){
-		const AGL = document.getElementByName('AGL');
-        const BMI = document.getElementByName('BMI');
-        const result = parseInt(AGL) + parseInt(BMI);
-        document.getElementById('main').innerHTML = `The sum is ${result}.`;
-			}
-		</script> 
+
 		<div id="btnfamily">
-		<form action="main1.html" method="get">
+		<form action="/main1" method="get">
 		<label for="AGL">Average Glucose Level :</label>
 		<input type="number" name="AGL" id="AGL"><br>
 		<label for="BMI">BMI :</label>
 		<input type="number" name="BMI" id="BMI">
-<input type="submit" value="Add">
+    <input type="submit" value="Add">
+  
     </form>
 		</div>
 	</div>
