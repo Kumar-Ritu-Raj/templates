@@ -171,6 +171,9 @@ h1{font-size:50px;color:cornflowerblue;margin:10px;}
 	function getResult(){
 		let dataArr=document.getElementsByClassName("data");
     let result=0;
+    const ar = new Array(dataArr.length+1);
+    ar[0]={{C_data[0]}};
+    const array = new Array(dataArr.length);
 		for(i=0;i<dataArr.length;i++){
 			if(dataArr[i].value==""){//!= is set as ==
 				alert("Please Fill Every Field Properly.");
@@ -178,10 +181,21 @@ h1{font-size:50px;color:cornflowerblue;margin:10px;}
 			}else{
 				//alert(parseFloat(document.getElementsByClassName("pydata")[0].innerHTML)+0.2);
 				// Calculate the result and display it in the result div
-				result+=parseFloat(dataArr[i].value);
+				array[i]=parseFloat(dataArr[i].value);
+        //array_c[i]={{C_data[i]}};
         openResult();
 			}
 		}
+    ar[1]={{C_data[1]}};
+    ar[2]={{C_data[2]}};
+    ar[3]={{C_data[3]}};
+    ar[4]={{C_data[4]}};
+    ar[5]={{C_data[5]}};
+    ar[6]={{C_data[6]}};
+    ar[7]={{C_data[7]}};
+    result=(ar[0]+ar[1]*array[0]+ar[2]*array[1]+ar[3]*array[2]+ar[4]*array[3]+ar[5]*array[4]+ar[6]*array[5]+ar[7]*array[6])*-1;
+    result = (1/(1+Math.exp(result)));
+    result=result.toFixed(0);
     document.getElementById("result").innerHTML = "Result: " + result;
 	}
 	function openResult(){
