@@ -150,13 +150,14 @@ h1{font-size:50px;color:cornflowerblue;margin:10px;}
 	<div id="popup"><!-- to show the result -->
 		<button id="close" onclick="this.parentElement.style.height='0%'">&#10008;</button>
 		<div id="resultText">
+      <h1>Prediction</h1>
 			<p>Total Data = <span class="pydata">{{T_data[4]}}</span></p>
 			<p>Train Data = <span class="pydata">{{T_data[2]}}</span>% = <span class="pydata">{{T_data[0]}}</span></p>
 			<p>Test Data = <span class="pydata">{{T_data[3]}}</span>% = <span class="pydata">{{T_data[1]}}</span></p>
 			<p id="result"></p>
 		</div>
 		<div id="resultParameter">
-			<h1>Prediction</h1>
+			<h1>Accuracy</h1>
 			<p>Radial Support Vector Machines(rbf-SVM) = <span class="pydata">{{A_data[0]}}</span></p>
 			<p>Linear Support Vector Machine(linear-SVM) = <span class="pydata">{{A_data[1]}}</span></p>
 			<p>Decision Tree = <span class="pydata">{{A_data[2]}}</span></p>
@@ -196,7 +197,14 @@ h1{font-size:50px;color:cornflowerblue;margin:10px;}
     result=(ar[0]+ar[1]*array[0]+ar[2]*array[1]+ar[3]*array[2]+ar[4]*array[3]+ar[5]*array[4]+ar[6]*array[5]+ar[7]*array[6])*-1;
     result = (1/(1+Math.exp(result)));
     result=result.toFixed(0);
-    document.getElementById("result").innerHTML = "Result: " + result;
+    if(result==1)
+    {
+document.getElementById("result").innerHTML = "<b style='color:Red;'><i>Patient had a stroke</i></b>";
+    }
+    else{
+      document.getElementById("result").innerHTML = "<b style='color:Red;'><i>Patient had no stroke</i></b> ";
+    }
+    
 	}
 	function openResult(){
 		document.getElementById("popup").style.height="100%";
